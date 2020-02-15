@@ -1,0 +1,6 @@
+{
+    "0" : "AccidentDetected!",
+    "1" : "HighTrafficDetected!",
+    "2" : "FireAccidentDetected!",
+    "3" : "Normalflow"
+}

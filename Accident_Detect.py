@@ -1,9 +1,10 @@
 from io import open
-import requests
-import shutil
-from zipfile import ZipFile
-from imageai.Prediction.Custom import ModelTraining, CustomImagePrediction
-import os
+#import requests
+#import shutil
+#from zipfile import ZipFile
+#from imageai.Prediction.Custom import ModelTraining
+#import os
+from imageai.Prediction.Custom import CustomImagePrediction
 import smtplib 
 from email.mime.multipart import MIMEMultipart 
 from email.mime.text import MIMEText 
@@ -44,7 +45,7 @@ def mail(prediction,path):
     s.sendmail(fromaddr, toaddr, text)
     s.quit()
 
-
+'''
 execution_path = os.getcwd()
 SOURCE_PATH = "https://github.com/OlafenwaMoses/Traffic-Net/releases/download/1.0/trafficnet_dataset_v1.zip"
 FILE_DIR = os.path.join(execution_path, "trafficnet_dataset_v1.zip")
@@ -73,7 +74,7 @@ def train_traffic_net():
     trainer.setModelTypeAsResNet()
     trainer.setDataDirectory("trafficnet_dataset_v1")
     trainer.trainModel(num_objects=4, num_experiments=200, batch_size=32, save_full_model=True, enhance_data=True)
-
+'''
 def run_predict():
     predictor = CustomImagePrediction()
     predictor.setModelPath(model_path="trafficnet_resnet_model_ex-055_acc-0.913750.h5")
@@ -102,11 +103,12 @@ def run_predict():
         print('NormalFlow')
         
 
-      
 #train_traffic_net()
 i=0
-while(i<1):
+while(i<3):
+    print("Detecting...")
     run_predict()
     i=i+1
+
     
  
